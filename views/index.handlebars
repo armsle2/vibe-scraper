@@ -1,0 +1,57 @@
+
+<div class="jumbotron">
+	<div class="layer"></div>
+	<div class="container text-center header">
+		<h1>MUSIC NEWS</h1>
+		<h3>Vibe Mongo Scraper Edition</h3>
+	</div>
+</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class='container-fluid'>
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Vibe Scraper</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li><a href="#">Saved Articles</a></li>
+			<li><button class="btn btn-danger scrape-button">Scrape New Articles</button>></li>
+		</ul>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 text-center">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Articles</h3>
+				</div>
+				<div class="panel-body">
+					{{#each results}}
+					<div>
+						<a href="{{this.link}}"><img src="{{this.image}}" width="188" height="188"></a>
+					</div>
+					<div>
+						<h4>{{this.title}}</h4>
+						<a href="{{this.link}}">{{this.link}}</a>
+					</div>
+					<button class="btn btn-success">Save This Article</button>
+					<br>
+					<br>
+					<br>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 text-center">
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					<h3 class="panel-title">Saved Articles</h3>
+				</div>
+				<div class="panel-body">
+					Panel Heading
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
