@@ -59,7 +59,10 @@ app.get('/scrape', function(req, res){
       }
       db.Article.create(results).then(function(dbArticle){
         console.log(dbArticle)
+      }).catch(function(err){
+        console.log(err)
       })
+      
     });
     
   });
@@ -68,7 +71,7 @@ app.get('/scrape', function(req, res){
 
 app.get('/', function(req, res){
 
-  db.Article.find({}).then(function(results){
+  db.Article.find({}).sort({_id: -1}).then(function(results){
 
     res.render('index', {results} );
   })

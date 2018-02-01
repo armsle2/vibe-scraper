@@ -6,13 +6,18 @@ const ArticleSchema = new Schema({
 
 	title: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	link: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
-	image: String,
+	image: {
+		type: String,
+		unique: true
+	},
 	note: {
 		type: Schema.Types.ObjectId,
 		ref: "Note"
