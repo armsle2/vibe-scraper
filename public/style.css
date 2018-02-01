@@ -2,6 +2,10 @@ body{
 	background-color: #a29389;
 }
 
+a {
+    color: #381700;
+}
+
 .jumbotron{
 	background-image: url('./images/live.jpeg');
 }

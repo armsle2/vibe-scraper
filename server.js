@@ -71,25 +71,29 @@ app.get('/scrape', function(req, res){
 
 app.get('/', function(req, res){
 
-  db.Article.find({}).sort({_id: -1}).then(function(results){
+  db.Article.find({}).sort({_id: -1}).then(function(allArticles){
+    db.SavedArticle.find({}).then(function(savedArticles){
+      var results = {
+        allArticles: allArticles,
+        savedArticles: savedArticles
+      }
+      res.render('index', results);
 
-    res.render('index', {results} );
+    })
   })
-  // let vibeApi = {
-  //   method: 'GET',
-  //   url: 'http://localhost:3000/api/vibe'
-  // }
-
-  // request(vibeApi, function(error, response, html) {
-  //   html = JSON.parse(html)
-  //   // console.log(response.body)
-  //   let results = html
-  //   // console.log(html)
-  //   // Log the results once you've looped through each of the elements found with cheerio
-  //   res.render('index', {results} );
-  // });
 
 })
+
+app.post('/saved', function(req, res){
+
+  db.SavedArticle.create(req.body).then(function(dbSavedArticle){
+    res.json(dbSavedArticle)
+  }).catch(function(err){
+    console.log(err)
+  })
+})
+
+
 // Make a request call to grab the HTML body from the site of your choice
 
 

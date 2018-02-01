@@ -26,15 +26,14 @@
 					<h3 class="panel-title">Articles</h3>
 				</div>
 				<div class="panel-body">
-					{{#each results}}
+					{{#each allArticles}}
 					<div>
 						<a href="{{this.link}}"><img src="{{this.image}}" width="188" height="188"></a>
 					</div>
 					<div>
-						<h4>{{this.title}}</h4>
-						<a href="{{this.link}}">{{this.link}}</a>
+						<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
 					</div>
-					<button class="btn btn-success">Save This Article</button>
+					<button class="btn btn-success save-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Save This Article</button>
 					<br>
 					<br>
 					<br>
@@ -48,7 +47,18 @@
 					<h3 class="panel-title">Saved Articles</h3>
 				</div>
 				<div class="panel-body">
-					Panel Heading
+					{{#each savedArticles}}
+					<div>
+						<a href="{{this.link}}"><img src="{{this.image}}" width="188" height="188"></a>
+					</div>
+					<div>
+						<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
+					</div>
+					<button class="btn btn-success save-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Save This Article</button>
+					<br>
+					<br>
+					<br>
+					{{/each}}
 				</div>
 			</div>
 		</div>
