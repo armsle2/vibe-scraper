@@ -93,6 +93,14 @@ app.post('/saved', function(req, res){
   })
 })
 
+app.delete('/', function(req, res){
+
+  db.SavedArticle.remove(req.body).then(function(dbSavedArticle){
+    res.json(dbSavedArticle)
+  }).catch(function(err){
+    console.log(err)
+  })
+})
 
 // Make a request call to grab the HTML body from the site of your choice
 

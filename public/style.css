@@ -51,6 +51,11 @@ a {
     border-color: rgba(188, 232, 241, 0);
 }
 
+.panel-heading {
+    box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.82);
+
+}
+
 .panel-info {
     border-color: rgba(92, 128, 136, 0);
 }
@@ -81,6 +86,6 @@ a {
     float: left;
 }
 .article-image img {
-    width: 150px;
-    height: 150px;
+    width: 188px;
+    height: 188px;
 }

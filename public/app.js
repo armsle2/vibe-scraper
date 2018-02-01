@@ -18,4 +18,17 @@ $(function(){
 		})
 	})
 
+	$(document).on('click', '.delete-article', function(){
+		var articleId = {
+			_id: $(this).attr('id')
+		}
+		$.ajax({
+			method: 'DELETE',
+			url: '/',
+			data: articleId
+		}).then(function(data){
+			console.log(data)
+		})
+	})
+
 })
