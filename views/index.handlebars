@@ -14,7 +14,6 @@
 		</div>
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
-			<li><a href="#">Saved Articles</a></li>
 			<li><button class="btn btn-danger scrape-button">Scrape New Articles</button>></li>
 		</ul>
 	</div>
@@ -30,7 +29,7 @@
 					{{#each allArticles}}
 					<div class="article-div row">
 						<div class="article-image">
-							<a href="{{this.link}}"><img src="{{this.image}}" width="150" height="150"></a>
+							<a href="{{this.link}}"><img src="{{this.image}}"></a>
 						</div>
 						<div class="article-title">
 							<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
@@ -50,7 +49,7 @@
 					{{#each savedArticles}}
 					<div class="article-div row">
 						<div class="article-image">
-							<a href="{{this.link}}"><img src="{{this.image}}" width="150" height="150"></a>
+							<a href="{{this.link}}"><img src="{{this.image}}"></a>
 						</div>
 						<div class="article-title">
 							<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>

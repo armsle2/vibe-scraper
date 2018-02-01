@@ -12,4 +12,10 @@ $(function(){
 		})
 	})
 
+	$(document).on('click', '.scrape-button', function(){
+		$.get('/scrape', function(data){
+			console.log(data)
+		})
+	})
+
 })
