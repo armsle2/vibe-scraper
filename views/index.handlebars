@@ -55,12 +55,37 @@
 							<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
 						</div>
 						<button class="btn btn-danger delete-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Delete Article</button>
-						<button class="btn btn-primary view-notes" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Notes</button>
+						<button type="button" class="btn add-btn btn-primary view-notes" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}" data-toggle="modal" data-target="#notesModal">Notes</button>
 					</div>
 					{{/each}}
 				</div>
 			</div>
 		</div>
+	</div>
+{{!-- Notes Modal --}}
+	<div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h2 class="form-title" id="myModalLabel">Add A Note</h2>
+	        <p id="missing-data" style="color: red;"></p>
+	      </div>
+	      <div class="modal-body">
+	            <form id="note">
+	                <div class="form-group">
+	                    <label for="task">Title:</label>
+	                    <input type="text" class="form-control modal-form" id="note-title">
+	                    <label for="body">Notes:</label>
+	                    <textarea class="form-control modal-form" rows="10" id="note-body"></textarea>
+	                </div>
+	            </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary btn-lg btn-block submit" id= "add-item" data-dismiss="">Submit</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 	
 </div>
