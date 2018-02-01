@@ -53,6 +53,13 @@ a {
     border-color: rgba(92, 128, 136, 0);
 }
 
+.panel-body {
+    padding: 15px;
+    min-height: 30px;
+    overflow-y: scroll;
+    max-height: 800px;
+}
+
 .panel-success>.panel-heading {
      color: #000; 
     background-color: #bedcb2;
@@ -61,4 +68,13 @@ a {
 
 .panel-success {
     border-color: rgba(214, 233, 198, 0);
+}
+.article-div {
+    padding: 7px;
+}
+.article-title {
+    padding-top: 4%;
+}
+.article-image {
+    float: left;
 }

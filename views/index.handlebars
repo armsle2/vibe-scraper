@@ -28,16 +28,15 @@
 				</div>
 				<div class="panel-body">
 					{{#each allArticles}}
-					<div>
-						<a href="{{this.link}}"><img src="{{this.image}}" width="188" height="188"></a>
+					<div class="article-div row">
+						<div class="article-image">
+							<a href="{{this.link}}"><img src="{{this.image}}" width="150" height="150"></a>
+						</div>
+						<div class="article-title">
+							<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
+						</div>
+						<button class="btn btn-success save-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Save This Article</button>
 					</div>
-					<div>
-						<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
-					</div>
-					<button class="btn btn-success save-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Save This Article</button>
-					<br>
-					<br>
-					<br>
 					{{/each}}
 				</div>
 			</div>
@@ -49,17 +48,16 @@
 				</div>
 				<div class="panel-body">
 					{{#each savedArticles}}
-					<div>
-						<a href="{{this.link}}"><img src="{{this.image}}" width="188" height="188"></a>
+					<div class="article-div row">
+						<div class="article-image">
+							<a href="{{this.link}}"><img src="{{this.image}}" width="150" height="150"></a>
+						</div>
+						<div class="article-title">
+							<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
+						</div>
+						<button class="btn btn-danger delete-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Delete Article</button>
+						<button class="btn btn-primary view-notes" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Notes</button>
 					</div>
-					<div>
-						<a href="{{this.link}}" target="_blank"><h4>{{this.title}}</h4></a>
-					</div>
-					<button class="btn btn-danger delete-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Delete Article</button>
-					<button class="btn btn-primary view-notes" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Notes</button>
-					<br>
-					<br>
-					<br>
 					{{/each}}
 				</div>
 			</div>
