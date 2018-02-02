@@ -23,7 +23,7 @@ button:focus{
     background-image: url('./images/live.jpeg');
 }
 
-.scrape-button{
+#scrape-button{
 	margin-top: 9px;
     margin-left: 20px;
 }

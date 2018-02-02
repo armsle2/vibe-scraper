@@ -58,9 +58,9 @@ app.get('/scrape', function(req, res){
         results.image = image;
       }
       db.Article.create(results).then(function(dbArticle){
-        console.log(dbArticle)
+        res.json(dbArticle)
       }).catch(function(err){
-        console.log(err)
+        res.json(err)
       })
       
     });

@@ -7,14 +7,13 @@ $(function(){
 			image: $(this).data('image')
 		}
 		$.post('/saved', article, function(data){
-			console.log(data);
 			location.reload();
 		})
 	})
 
-	$(document).on('click', '.scrape-button', function(){
+	$(document).on('click', '#scrape-button', function(){
 		$.get('/scrape', function(data){
-			console.log(data)
+			location.reload();
 		})
 	})
 
@@ -27,7 +26,7 @@ $(function(){
 			url: '/',
 			data: articleId
 		}).then(function(data){
-			console.log(data)
+			location.reload();
 		})
 	})
 
