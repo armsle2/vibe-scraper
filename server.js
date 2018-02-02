@@ -27,7 +27,7 @@ app.engine("handlebars", exphbs({defaultLayout: 'main'}));
 app.set("view engine", "handlebars");
 
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 app.get('/scrape', function(req, res){
 
