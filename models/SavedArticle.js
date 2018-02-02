@@ -18,10 +18,10 @@ const SavedArticleSchema = new Schema({
 		type: String,
 		unique: true
 	},
-	note: {
+	note: [{
 		type: Schema.Types.ObjectId,
 		ref: "Note"
-	}
+	}]
 });
 
 const SavedArticle = mongoose.model('Saved Article', SavedArticleSchema);

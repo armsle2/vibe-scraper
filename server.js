@@ -72,7 +72,7 @@ app.get('/scrape', function(req, res){
 app.get('/', function(req, res){
 
   db.Article.find({}).sort({_id: -1}).then(function(allArticles){
-    db.SavedArticle.find({}).then(function(savedArticles){
+    db.SavedArticle.find({}).sort({_id: -1}).then(function(savedArticles){
       var results = {
         allArticles: allArticles,
         savedArticles: savedArticles
@@ -81,7 +81,15 @@ app.get('/', function(req, res){
 
     })
   })
+})
 
+app.get('/articlenotes/:id', function(req, res){
+    db.SavedArticle.findOne({_id: req.params.id}).populate({path: 'note'})
+    .then(function(articleNotes){
+      res.json(articleNotes);
+    }).catch(function(err){
+      res.json(err)
+    })
 })
 
 app.post('/saved', function(req, res){
@@ -90,6 +98,25 @@ app.post('/saved', function(req, res){
     res.json(dbSavedArticle)
   }).catch(function(err){
     console.log(err)
+  })
+})
+
+app.post('/articlenotes', function(req, res){
+    var noteInfo = {
+      title: req.body.title,
+      body: req.body.body
+    }
+  db.Note.create(noteInfo).then(function(dbNote){
+
+    return db.SavedArticle.updateOne({_id: req.body.articleId }, {$push: {note: dbNote._id}})
+
+  }).then(function(dbArticle){
+
+    res.json(dbArticle)
+
+  }).catch(function(err){
+
+    res.json(err)
   })
 })
 

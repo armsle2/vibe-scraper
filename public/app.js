@@ -31,4 +31,43 @@ $(function(){
 		})
 	})
 
+	$(document).on('click', '.view-notes', function(){
+		var articleId = $(this).attr('id');
+
+			$.get(`/articlenotes/${articleId}`, function(data){
+				console.log(data)
+				$('.notes').html('');
+				data.note.forEach((results, index)=>{
+					var noteCollapsibles = `
+            		<div>
+            			<button class="panel panel-default panel-heading collapsed" data-toggle="collapse" data-target="#${results._id}" aria-expanded="false">${results.title}</button>
+            			<div id="${results._id}" class="collapse" aria-expanded="false" style="height: 0px;">
+	            			<div class="note-body">
+	            				<p>${results.body}</p>
+	            			</div>
+            			</div>
+            		</div>`;
+            		$('.notes').append(noteCollapsibles);
+
+
+				})
+				
+				// location.reload();
+			})
+	})
+
+	// $(document).on('click', '.view-notes', function(){
+	// 	var articleId = $(this).attr('id');
+	// 	$('#add-note').on('click', function(){
+	// 		var note = {
+	// 			title: $('#note-title').val().trim(),
+	// 			body: $('#note-body').val().trim(),
+	// 			articleId: articleId
+	// 		}
+	// 		$.post('/articlenotes', note, function(data){
+	// 			console.log(data);
+	// 			// location.reload();
+	// 		})
+	// 	})
+	// })
 })
