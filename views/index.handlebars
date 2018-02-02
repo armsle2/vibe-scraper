@@ -26,6 +26,9 @@
 					<h3 class="panel-title">Articles</h3>
 				</div>
 				<div class="panel-body">
+					{{#if noArticles}}
+					<h2 class="no-saved-articles">Click The "Scrape New Articles" Button At The Top To Get Started</h2>
+					{{else}}
 					{{#each allArticles}}
 					<div class="article-div row">
 						<div class="article-image">
@@ -37,6 +40,7 @@
 						<button class="btn btn-success save-article" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}">Save This Article</button>
 					</div>
 					{{/each}}
+					{{/if}}
 				</div>
 			</div>
 		</div>

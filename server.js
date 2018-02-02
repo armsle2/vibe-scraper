@@ -61,7 +61,7 @@ app.get('/scrape', function(req, res){
       db.Article.create(results).then(function(dbArticle){
         res.json(dbArticle)
       }).catch(function(err){
-        res.json(err)
+       res.json(err)
       })
       
     });
@@ -74,6 +74,7 @@ app.get('/', function(req, res){
 
   db.Article.find({}).sort({_id: -1}).then(function(allArticles){
     db.SavedArticle.find({}).sort({_id: -1}).then(function(savedArticles){
+      // console.log(allArticles)
       var results = {
         allArticles: allArticles,
         savedArticles: savedArticles
@@ -81,9 +82,14 @@ app.get('/', function(req, res){
       if(savedArticles.length == 0){
         results.noSavedArticles = true
       }
+      if(allArticles.length == 0){
+        results.noArticles = true
+      }
       res.render('index', results);
 
     })
+  }).catch(function(err){
+    console.log(err)
   })
 })
 
