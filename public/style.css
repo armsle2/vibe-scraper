@@ -111,3 +111,8 @@ button.panel{
 .note-body p {
     margin-top: 17px;
 }
+
+.no-saved-articles{
+
+    color: rgba(0, 0, 0, 0.41);
+}

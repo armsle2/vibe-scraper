@@ -78,6 +78,9 @@ app.get('/', function(req, res){
         allArticles: allArticles,
         savedArticles: savedArticles
       }
+      if(savedArticles.length == 0){
+        results.noSavedArticles = true
+      }
       res.render('index', results);
 
     })

@@ -46,8 +46,11 @@
 					<h3 class="panel-title">Saved Articles</h3>
 				</div>
 				<div class="panel-body">
+					{{#if noSavedArticles}}
+					<h2 class="no-saved-articles">You Haven't Saved Any Articles Yet!</h2>
+					{{else}}
 					{{#each savedArticles}}
-					<div class="article-div row">
+					<div class="article-div saved-article row">
 						<div class="article-image">
 							<a href="{{this.link}}"><img src="{{this.image}}"></a>
 						</div>
@@ -58,6 +61,7 @@
 						<button type="button" class="btn add-btn btn-primary view-notes" id="{{this._id}}" data-title="{{this.title}}" data-link="{{this.link}}" data-image="{{this.image}}" data-toggle="modal" data-target="#notesModal">Notes</button>
 					</div>
 					{{/each}}
+					{{/if}}
 				</div>
 			</div>
 		</div>
