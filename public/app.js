@@ -48,26 +48,23 @@ $(function(){
             			</div>
             		</div>`;
             		$('.notes').append(noteCollapsibles);
-
-
 				})
-				
-				// location.reload();
+				$('#add-note').data('id', data._id);
+				var articleId = $('#add-note').data('id');
+				$('#add-note-button').on('click', function(){
+					var note = {
+						title: $('#note-title').val().trim(),
+						body: $('#note-body').val().trim(),
+						articleId: articleId
+					}
+					$.post('/articlenotes', note, function(data){
+						console.log(data);
+						location.reload();
+					})
+				})
+					
 			})
 	})
 
-	// $(document).on('click', '.view-notes', function(){
-	// 	var articleId = $(this).attr('id');
-	// 	$('#add-note').on('click', function(){
-	// 		var note = {
-	// 			title: $('#note-title').val().trim(),
-	// 			body: $('#note-body').val().trim(),
-	// 			articleId: articleId
-	// 		}
-	// 		$.post('/articlenotes', note, function(data){
-	// 			console.log(data);
-	// 			// location.reload();
-	// 		})
-	// 	})
-	// })
+	
 })
