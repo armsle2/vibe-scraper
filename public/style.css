@@ -74,7 +74,7 @@ button:focus{
 .panel-success>.panel-heading {
      color: #000; 
     background-color: #92c8d8;
-    border-color: #d6e9c6;
+    border-color: rgba(214, 233, 198, 0);
 }
 
 .panel-success {
