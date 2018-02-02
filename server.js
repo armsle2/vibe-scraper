@@ -11,9 +11,10 @@ const mongoose = require('mongoose');
 const db = require('./models');
 
 
-mongoose.Promise = Promise;
-mongoose.connect('mongodb://localhost/vibescraper');
-
+mongoose.Promise = global.Promise;
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/vibescraper"
+);
 
 var app = express();
 
